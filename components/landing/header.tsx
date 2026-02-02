@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRightIcon } from "lucide-react";
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 export default function Header() {
@@ -33,6 +34,12 @@ export default function Header() {
         >
           LinkedIn
           <ArrowUpRightIcon className="size-4" />
+        </Button>
+        <Button variant="ghost" className="cursor-pointer" asChild>
+          <Link href={`mailto:dumitracheflorentincristian@gmail.com`}>
+            Email
+            <ArrowUpRightIcon className="size-4" />
+          </Link>
         </Button>
       </div>
     </div>

@@ -1,11 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
 
 const EMAIL = "dumitracheflorentincristian@gmail.com";
 const LINKEDIN_URL =
   "https://www.linkedin.com/in/florentin-dumitrache-cristian/";
+const GITHUB_URL = "https://github.com/DumitracheFlorentin";
 
 export default function Connect() {
   return (
@@ -34,13 +36,28 @@ export default function Connect() {
               LinkedIn
             </a>
           </Button>
-          <a
+          <Button
+            variant="secondary"
+            className="order-3 cursor-pointer rounded-full sm:order-2"
+            asChild
+          >
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2"
+            >
+              <Github className="size-4" />
+              GitHub
+            </a>
+          </Button>
+          <Link
             href={`mailto:${EMAIL}`}
-            className="order-1 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground sm:order-2"
+            className="order-1 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground sm:order-3"
           >
             <Mail className="size-4" />
             {EMAIL}
-          </a>
+          </Link>
         </div>
       </div>
     </div>
