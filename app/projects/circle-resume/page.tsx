@@ -153,7 +153,7 @@ export default function MakeYourResumeProjectPage() {
         </div>
         <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-sm lg:rounded-3xl">
           <Image
-            src="/projects/circleresume9.png"
+            src="/projects/circleResume/circleresume-landing.png"
             alt="Resume editor with live preview"
             fill
             className="object-cover"
