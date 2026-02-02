@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint"
   },
-  "author": "Dumitrache Florentin Cristian",
+  "author": "Dumitrache Florentin-Cristian",
   "repository": {
     "type": "git",
     "url": "https://github.com/DumitracheFlorentin/dumitracheflorentincristian.com"

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dumitrache Florentin Cristian",
-  description: "Portfolio website of Dumitrache Florentin Cristian",
+  title: "Florentin-Cristian Dumitrache",
+  description: "Portfolio website of Florentin-Cristian Dumitrache",
 };
 
 export default function RootLayout({
