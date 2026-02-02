@@ -1,0 +1,40 @@
+"use client";
+
+import { ArrowUpRightIcon } from "lucide-react";
+import { Button } from "../ui/button";
+
+export default function Header() {
+  return (
+    <div className="flex justify-between items-center border-b pb-4">
+      <div className="flex flex-col">
+        <h1 className="text-base font-medium">Dumitrache Florentin Cristian</h1>
+        <h2 className="text-sm text-muted-foreground">Software Engineer</h2>
+      </div>
+      <div className="items-center gap-2 hidden sm:flex">
+        <Button
+          variant="ghost"
+          className="cursor-pointer"
+          onClick={() => {
+            window.open("https://github.com/DumitracheFlorentin", "_blank");
+          }}
+        >
+          GitHub
+          <ArrowUpRightIcon className="size-4" />
+        </Button>
+        <Button
+          variant="ghost"
+          className="cursor-pointer"
+          onClick={() => {
+            window.open(
+              "https://www.linkedin.com/in/florentin-dumitrache-cristian/",
+              "_blank"
+            );
+          }}
+        >
+          LinkedIn
+          <ArrowUpRightIcon className="size-4" />
+        </Button>
+      </div>
+    </div>
+  );
+}
