@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Florentin-Cristian Dumitrache — Portfolio
 
-## Getting Started
+Personal portfolio website for **Florentin-Cristian Dumitrache**, Software Engineer. A minimal, responsive site built with Next.js, featuring work experience, education, and contact details, with light/dark theme support.
 
-First, run the development server:
+**Live site:** [dumitracheflorentincristian.com](https://dumitracheflorentincristian.com)
+
+## Tech stack
+
+- **Next.js** (App Router) — React framework
+- **TypeScript** — Typed JavaScript
+- **Tailwind CSS v4** — Styling
+- **shadcn/ui** — UI components (Button, Card, etc.)
+- **Framer Motion** — Page entrance animation
+- **next-themes** — Light / dark / system theme
+- **Lucide React** — Icons
+
+## Getting started
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Build for production
+npm run build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Start production server
+npm start
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` — Next.js App Router (layout, page, globals)
+- `components/landing/` — Header, Work Experience, Education, Connect, Footer, theme dropdown/toggle
+- `components/ui/` — shadcn components
+- `components/` — Theme provider (next-themes)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content and copyright
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**All content on this website is proprietary and protected.**
 
-## Deploy on Vercel
+The text, personal information, work experience, education history, contact details, and any other content displayed on this site **may not be edited, modified, reproduced, or used without the explicit written permission of Florentin-Cristian Dumitrache**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This includes but is not limited to: biographical text, job titles, company names, dates, educational institutions, and contact information. The source code may be inspected for learning or reference, but republishing or reusing the site’s content is not permitted without authorization.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For permission requests, please contact: **dumitracheflorentincristian@gmail.com**.
+
+## License
+
+The **code** in this repository is available under the license specified in the repository. The **content** (copy, data, and personal information) remains the property of Florentin-Cristian Dumitrache and is subject to the terms above.
