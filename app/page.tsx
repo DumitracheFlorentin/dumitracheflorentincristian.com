@@ -3,10 +3,11 @@ import WorkExperience from "@/components/landing/work-experience";
 import EducationExperience from "@/components/landing/education-experience";
 import Connect from "@/components/landing/connect";
 import Footer from "@/components/landing/footer";
+import PageContent from "@/components/landing/page-content";
 
 export default function Home() {
   return (
-    <div className="flex flex-col mx-6 sm:mx-8 md:mx-0 gap-8 sm:gap-16">
+    <PageContent>
       <Header />
 
       <p className="text-sm sm:text-base text-muted-foreground">
@@ -24,6 +25,6 @@ export default function Home() {
       <Connect />
 
       <Footer />
-    </div>
+    </PageContent>
   );
 }
