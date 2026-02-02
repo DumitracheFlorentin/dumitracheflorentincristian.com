@@ -32,6 +32,7 @@ const DETAILS: Record<
       "Refactored the page used for appending switches to update groups, making it easier to upgrade or roll back to previous or future versions.",
       "Implemented UI to match design mockups with pixel-perfect accuracy.",
       "Improved user experience by integrating WebSockets to push updates to specific sections of the interface in real time, eliminating the need for full page refreshes when data changes.",
+      "Collaborated effectively in a large team, maintaining clear and professional communication with backend and design teams and staying available to support colleagues whenever needed.",
     ],
     skills: [
       "React",
