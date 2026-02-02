@@ -1,6 +1,7 @@
 import Header from "@/components/landing/header";
 import WorkExperience from "@/components/landing/work-experience";
 import EducationExperience from "@/components/landing/education-experience";
+import Projects from "@/components/landing/projects";
 import Connect from "@/components/landing/connect";
 import Footer from "@/components/landing/footer";
 import PageContent from "@/components/landing/page-content";
@@ -17,6 +18,8 @@ export default function Home() {
         teams. Passionate about software development and continuous learning, I
         aim to contribute to innovative and impactful projects.
       </p>
+
+      <Projects />
 
       <WorkExperience />
 
