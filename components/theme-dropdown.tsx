@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 const options = [
   { value: "light" as const, label: "Light", icon: Sun },
   { value: "dark" as const, label: "Dark", icon: Moon },
-  { value: "system" as const, label: "System", icon: Monitor },
 ] as const;
 
 export function ThemeDropdown() {
@@ -68,10 +67,7 @@ export function ThemeDropdown() {
           role="menu"
         >
           {options.map((opt) => {
-            const isActive =
-              opt.value === "system"
-                ? theme === "system"
-                : (resolvedTheme ?? theme) === opt.value;
+            const isActive = (resolvedTheme ?? theme ?? "light") === opt.value;
             const OptIcon = opt.icon;
             return (
               <button
