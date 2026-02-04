@@ -3,15 +3,24 @@
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { ThemeDropdown } from "@/components/theme-dropdown";
 
 export default function Header() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const logoSrc =
+    mounted && resolvedTheme === "light" ? "/icon-dark.png" : "/icon.png";
+
   return (
     <div className="flex justify-between items-center border-b pb-4">
       <div className="flex items-center gap-2 min-w-0">
         <Image
-          src="/icon.png"
+          src={logoSrc}
           alt=""
           width={40}
           height={40}
