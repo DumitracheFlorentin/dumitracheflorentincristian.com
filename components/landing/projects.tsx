@@ -29,6 +29,14 @@ const PROJECTS: ProjectEntry[] = [
     image: "/projects/circleResume/circle-resume.png",
     href: "/projects/circle-resume",
   },
+  {
+    id: "2",
+    title: "UndeStauStudentii",
+    description:
+      "A platform for students to find reviews about dorms and other student accomodations.",
+    image: "/projects/unde-stau-studentii/landing.png",
+    href: "/projects/unde-stau-studentii",
+  },
 ];
 
 function ProjectCard({ project }: { project: ProjectEntry }) {

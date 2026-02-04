@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ThemeDropdown } from "@/components/theme-dropdown";
+import Image from "next/image";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -13,81 +12,74 @@ import {
 import { ViewportVideo } from "@/components/projects/viewport-video";
 
 export const metadata: Metadata = {
-  title: "CircleResume | Florentin-Cristian Dumitrache",
+  title: "Unde Stau Studentii | Florentin-Cristian Dumitrache",
   description:
-    "Resume and cover letter builder with live preview, multiple templates, and PDF export. Built with Next.js, TypeScript, and Tailwind.",
+    "Platform for exploring universities, faculties and dorms in Romania, with real student reviews and experiences. Next.js, TypeScript, Tailwind, Better Auth, Drizzle.",
 };
 
 const FEATURES = [
   {
-    title: "Resume builder",
+    title: "Explore universities and faculties",
     description:
-      "Create and edit resumes with sections for profile, contact, summary, employment, education, skills, languages, and custom blocks. Drag-and-drop reordering.",
+      "Lists of universities and faculties with search, city filters and sorting. Hierarchical navigation: university → faculty → dorms.",
   },
   {
-    title: "Cover letters",
+    title: "Dorms and reviews",
     description:
-      "Dedicated editor for cover letters with template selection and live preview, aligned with the resume experience.",
+      "Each dorm has a dedicated page with description, address, transport (metro, bus), nearby locations and a reviews section from students.",
   },
   {
-    title: "Templates",
+    title: "Reviews and feedback",
     description:
-      "Multiple resume and cover letter templates (e.g. Classic, Modern, Professional) with consistent styling and PDF output.",
+      "Users can leave reviews (rating and comment), optionally anonymous. Feedback form for suggestions and reporting issues.",
   },
   {
-    title: "Live preview & PDF export",
+    title: "Admin dashboard",
     description:
-      "Live preview updates as you type. One-click export to PDF for download or print.",
+      "Faculty representatives have access to a dashboard where they can manage dorms: add, edit, list, with statistics (number of dorms, reviews).",
   },
   {
-    title: "Account & subscription",
+    title: "Authentication and account",
     description:
-      "Sign up, profile, password change, avatar upload, and optional Pro plan with billing and subscription management.",
+      "Sign up, login, user profile, password change, avatar upload. Roles (student vs. faculty representative) for dashboard access control.",
   },
 ] as const;
 
 const KEY_SCREENS = [
   {
+    title: "Home page",
+    description:
+      "Hero with CTA to universities and dorms, statistics (universities, faculties, dorms, reviews), sections for popular universities and faculties, partners.",
+    alt: "Unde Stau Studentii home page",
+    video: "/projects/unde-stau-studentii/home.mp4",
+  },
+  {
+    title: "Universities list",
+    description:
+      "All universities with search, city filters and sorting (name, city, reviews, faculties, dorms). Cards with logo, name, city, statistics.",
+    alt: "Universities list",
+    video: "/projects/unde-stau-studentii/universities.mp4",
+  },
+  {
+    title: "Faculty → Dorms",
+    description:
+      "A faculty page with its list of dorms. Breadcrumb navigation: University → Faculty → Dorms. Link to each dorm.",
+    alt: "Faculty and list of dorms",
+    video: "/projects/unde-stau-studentii/faculty.mp4",
+  },
+  {
+    title: "Dorm page",
+    description:
+      "Dorm details: name, description, address, metro, bus, nearby locations. Reviews section with rating and comments. Buttons for login/review and feedback.",
+    alt: "Dorm page with reviews",
+    video: "/projects/unde-stau-studentii/dorm.mp4",
+  },
+  {
     title: "Dashboard",
     description:
-      "Users see all their resumes (and cover letters if applicable). They can create new items, open, or manage them.",
-    alt: "Resume list and dashboard",
-    video: "/projects/circleResume/dashboard3.mp4",
-  },
-  {
-    title: "Resume editor",
-    description:
-      "The main editor splits into an edit panel (sections, fields, template and typography options) and a live preview. Changes reflect immediately.",
-    alt: "Resume editor with edit panel and preview",
-    video: "/projects/circleResume/resume-editor.mp4",
-  },
-  {
-    title: "Template selection",
-    description:
-      "Users switch between resume (and cover letter) templates without losing content. Each template has a distinct layout and style.",
-    alt: "Resume template selector",
-    video: "/projects/circleResume/template-selection.mp4",
-  },
-  {
-    title: "Cover letter editor",
-    description:
-      "Cover letters are edited in a dedicated flow with template choice and live preview, similar to the resume editor.",
-    alt: "Cover letter editor",
-    video: "/projects/circleResume/cover-letter.mp4",
-  },
-  {
-    title: "PDF export",
-    description:
-      "Resumes and cover letters can be exported to PDF from the preview. The export reflects the selected template and current content.",
-    alt: "PDF export preview",
-    video: "/projects/circleResume/pdf-export.mp4",
-  },
-  {
-    title: "Account settings",
-    description:
-      "Account page includes profile info, avatar, email, name, password change, billing or Pro subscription card, and danger zone (e.g. delete account).",
-    alt: "Account settings and billing",
-    video: "/projects/circleResume/account.mp4",
+      "For faculty representatives: statistics (total dorms, reviews), table of dorms (name, city, capacity, validated, actions). Add and edit dorms.",
+    alt: "Dorms dashboard",
+    video: "/projects/unde-stau-studentii/dashboard.mp4",
   },
 ] as const;
 
@@ -99,37 +91,28 @@ const TECH_STACK = [
   "Better Auth",
   "Drizzle ORM",
   "Vercel Blob",
-  "PostgreSQL",
-  "Polar",
+  "PostgreSQL (Neon / Supabase)",
+  "Framer Motion",
+  "Zod",
+  "React Hook Form",
+  "Shadcn UI",
 ];
 
-// function ImagePlaceholder({ alt }: { alt: string }) {
-//   return (
-//     <div
-//       className="flex aspect-video w-full items-center justify-center bg-muted text-sm text-muted-foreground"
-//       role="img"
-//       aria-label={alt}
-//     >
-//       Screenshot placeholder
-//     </div>
-//   );
-// }
-
-export default function MakeYourResumeProjectPage() {
+export default function UndeStauStudentiiProjectPage() {
   return (
     <div className="mx-6 flex flex-col gap-14 sm:mx-8 md:mx-0 sm:gap-20">
       {/* Top bar */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/"
-          className="text-sm text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+          className="rounded text-sm text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           ← Back to home
         </Link>
         <ThemeDropdown />
       </div>
 
-      {/* Hero – mobile: stacked left-aligned; desktop: centered, image full width below */}
+      {/* Hero */}
       <section className="flex flex-col gap-8 lg:gap-12">
         <div className="min-w-0 space-y-1 lg:text-center">
           <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -137,24 +120,24 @@ export default function MakeYourResumeProjectPage() {
           </p>
           <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">
             <a
-              href="https://circleresume.com"
+              href="https://undestaustudentii.ro"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+              className="inline-flex items-center gap-2 rounded hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              CircleResume
+              Unde Stau Studentii
               <ArrowUpRight className="size-5 shrink-0" aria-hidden />
             </a>
           </h1>
-          <p className="text-base text-muted-foreground leading-relaxed sm:text-lg lg:mx-auto lg:max-w-xl">
-            Build resumes and cover letters with live preview, pick a template,
-            and export to PDF.
+          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-auto lg:max-w-xl">
+            Find the right dorm for you: explore universities, faculties and
+            dorms in Romania, with real student reviews.
           </p>
         </div>
         <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-sm lg:rounded-3xl">
           <Image
-            src="/projects/circleResume/circleresume-landing.png"
-            alt="Resume editor with live preview"
+            src="/projects/unde-stau-studentii/landing.png"
+            alt="Unde Stau Studentii home page"
             fill
             className="object-cover"
             sizes="100vw"
@@ -170,12 +153,12 @@ export default function MakeYourResumeProjectPage() {
         </h2>
         <Card className="border-border bg-muted/30 p-5 shadow-none sm:p-6">
           <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
-            CircleResume is a web app that lets users create and customize
-            resumes and cover letters. They can choose from several templates,
-            edit content in real time with a live preview, and export to PDF.
-            The app includes authentication, account settings, and an optional
-            Pro subscription. The project demonstrates full-stack development
-            with a focus on UX and responsive design.
+            Unde Stau Studentii is a web app that helps students find dorms by
+            university and faculty. Users can explore universities and
+            faculties, view dorms with details (address, transport, nearby
+            locations) and read real reviews. Faculty representatives can manage
+            dorms via a dashboard. The project includes authentication, feedback
+            and privacy policies.
           </p>
         </Card>
       </section>
@@ -240,8 +223,7 @@ export default function MakeYourResumeProjectPage() {
         </h2>
         <Card className="border-border bg-muted/30 p-5 shadow-none sm:p-6">
           <p className="mb-4 max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
-            Built with modern web technologies for performance and
-            maintainability.
+            Built with modern technologies for performance and maintainability.
           </p>
           <div className="flex flex-wrap gap-2">
             {TECH_STACK.map((tech) => (
@@ -270,7 +252,7 @@ export default function MakeYourResumeProjectPage() {
             </div>
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://circleresume.com"
+                href="https://undestaustudentii.ro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
