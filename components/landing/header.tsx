@@ -51,7 +51,7 @@ export default function Header() {
             onClick={() => {
               window.open(
                 "https://www.linkedin.com/in/florentin-dumitrache-cristian/",
-                "_blank"
+                "_blank",
               );
             }}
           >

@@ -37,6 +37,7 @@ npm start
 ## Project structure
 
 - `app/` — Next.js App Router (layout, page, globals)
+- `public/` — Static assets; add `Resume - Florentin-Cristian-Dumitrache.pdf` here for the Download CV button
 - `components/landing/` — Header, Work Experience, Education, Connect, Footer, theme dropdown/toggle
 - `components/ui/` — shadcn components
 - `components/` — Theme provider (next-themes)

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 const EMAIL = "dumitracheflorentincristian@gmail.com";
@@ -20,9 +20,9 @@ export default function Connect() {
           opportunities and collaborations.
         </p>
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-4">
           <Button
-            variant="secondary"
+            variant="outline"
             className="order-2 cursor-pointer rounded-full sm:order-1"
             asChild
           >
@@ -37,7 +37,7 @@ export default function Connect() {
             </a>
           </Button>
           <Button
-            variant="secondary"
+            variant="outline"
             className="order-3 cursor-pointer rounded-full sm:order-2"
             asChild
           >
@@ -53,11 +53,25 @@ export default function Connect() {
           </Button>
           <Link
             href={`mailto:${EMAIL}`}
-            className="order-1 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground sm:order-3"
+            className="order-1 inline-flex items-center gap-2 rounded-full border border-input bg-background px-4 py-2 text-sm text-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:order-3"
           >
-            <Mail className="size-4" />
-            {EMAIL}
+            <Mail className="size-4 shrink-0" />
+            Email
           </Link>
+          <Button
+            variant="outline"
+            className="order-4 cursor-pointer rounded-full"
+            asChild
+          >
+            <a
+              href="/Resume - Florentin-Cristian-Dumitrache.pdf"
+              download
+              className="inline-flex items-center gap-2"
+            >
+              <Download className="size-4" />
+              Download CV
+            </a>
+          </Button>
         </div>
       </div>
     </div>
