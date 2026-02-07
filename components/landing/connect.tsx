@@ -53,7 +53,7 @@ export default function Connect() {
           </Button>
           <Link
             href={`mailto:${EMAIL}`}
-            className="order-1 inline-flex items-center gap-2 rounded-full border border-input bg-background px-4 py-2 text-sm text-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:order-3"
+            className="order-1 inline-flex items-center gap-2 rounded-full border bg-background px-4 py-2 text-sm font-medium text-foreground shadow-xs transition-colors hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 sm:order-3"
           >
             <Mail className="size-4 shrink-0" />
             Email
