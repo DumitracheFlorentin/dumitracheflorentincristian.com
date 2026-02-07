@@ -8,23 +8,45 @@ type CompanySlug = (typeof COMPANIES)[number];
 
 type SkillsEntry = string[] | { label: string; skills: string[] }[];
 
-const DETAILS: Record<
-  CompanySlug,
-  {
-    title: string;
-    company: string;
-    date: string;
-    location?: string;
-    duration?: string;
-    description: string[];
-    skills: SkillsEntry;
-  }
-> = {
+/**
+ * Returns duration string (e.g. "1 yr 2 mo") from startDate to endDate or today if endDate is null.
+ * Dates in YYYY-MM-DD format.
+ */
+function getDuration(startDate: string, endDate: string | null): string {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : new Date();
+  const totalMonths =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    (end.getMonth() - start.getMonth());
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+  const yr = years === 1 ? "1 yr" : `${years} yrs`;
+  const mo = months === 1 ? "1 mo" : `${months} mo`;
+  if (years === 0) return mo;
+  if (months === 0) return yr;
+  return `${yr} ${mo}`;
+}
+
+type CompanyDetails = {
+  title: string;
+  company: string;
+  date: string;
+  location?: string;
+  /** Start date YYYY-MM-DD; used with endDate to compute duration when present */
+  startDate: string;
+  /** End date YYYY-MM-DD; null = still working (duration computed to today) */
+  endDate: string | null;
+  description: string[];
+  skills: SkillsEntry;
+};
+
+const DETAILS: Record<CompanySlug, CompanyDetails> = {
   luxoft: {
     title: "Javascript Engineer - Cisco Systems Inc.",
     company: "Luxoft",
-    duration: "1 yr 1 mo",
     date: "Dec 2024 - Present",
+    startDate: "2024-12-01",
+    endDate: null,
     location: "Bucharest, Romania · Remote",
     description: [
       "Designed and implemented intuitive UI features for Cisco's Nexus Dashboard Fabric Controller (NDFC), enabling enhanced visibility and control over network performance and health.",
@@ -50,7 +72,8 @@ const DETAILS: Record<
     company: "Decathlon România",
     date: "Dec 2021 - Dec 2024",
     location: "Bucharest, Romania · Hybrid",
-    duration: "3 yrs 1 mo",
+    startDate: "2021-12-01",
+    endDate: "2024-12-01",
     description: [
       "Nuxt3 Migration: Led migration of Decathlon's internal apps from Nuxt2 to Nuxt3, enhancing performance and features.",
       "Testing Implementation: Developed end-to-end tests with Cypress and unit tests with Jest and Vitest, boosting app reliability.",
@@ -113,6 +136,7 @@ export default async function WorkExperienceCompanyPage({
     notFound();
   }
   const details = DETAILS[company];
+  const duration = getDuration(details.startDate, details.endDate);
 
   return (
     <div className="mx-6 flex flex-col gap-8 sm:mx-8 md:mx-0">
@@ -129,8 +153,7 @@ export default async function WorkExperienceCompanyPage({
         <div>
           <h1 className="text-base font-medium sm:text-lg">{details.title}</h1>
           <p className="text-sm text-muted-foreground">
-            {details.company} · {details.date}
-            {details.duration != null && ` · ${details.duration}`}
+            {details.company} · {details.date} · {duration}
           </p>
           {details.location != null && (
             <p className="text-sm text-muted-foreground">{details.location}</p>
