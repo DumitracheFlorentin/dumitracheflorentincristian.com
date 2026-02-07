@@ -10,19 +10,19 @@ export default function EducationExperience() {
   const educationExperience = [
     {
       id: 1,
-      university: "University of Bucharest",
+      university: "Faculty of Mathematics and Computer Science",
       degree: "Master's Degree in Database and Software Technologies",
       date: "Oct 2023 - Jul 2025",
     },
     {
       id: 2,
-      university: "University of Bucharest",
+      university: "Faculty of Mathematics and Computer Science",
       degree: "Bachelor's Degree in Computer Engineering",
       date: "Oct 2019 - Jul 2023",
     },
     {
       id: 3,
-      university: "Colegiul Național „Constantin Carabella”",
+      university: "National High School „Constantin Carabella”",
       degree: "High School Diploma in Computer Science and Mathematics",
       date: "Oct 2015 - Jun 2019",
     },
