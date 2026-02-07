@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ViewportVideoProps = {
   src: string;
@@ -15,6 +15,7 @@ export function ViewportVideo({
 }: ViewportVideoProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -32,7 +33,7 @@ export function ViewportVideo({
           video.pause();
         }
       },
-      { threshold: 0.25, rootMargin: "0px" }
+      { threshold: 0.25, rootMargin: "0px" },
     );
 
     observer.observe(wrapper);
@@ -42,17 +43,31 @@ export function ViewportVideo({
   return (
     <div
       ref={wrapperRef}
-      className={`relative aspect-video w-full bg-muted ${className}`}
+      className={`relative aspect-video w-full overflow-hidden bg-muted ${className}`}
     >
+      {/* Loading placeholder */}
+      {!isReady && (
+        <div
+          className="absolute inset-0 flex items-center justify-center bg-muted"
+          aria-hidden
+        >
+          <div className="flex flex-col items-center gap-3 text-muted-foreground">
+            <div className="size-8 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            <span className="text-xs font-medium">Loading video…</span>
+          </div>
+        </div>
+      )}
+
       <video
         ref={videoRef}
         src={src}
         loop
         muted
         playsInline
-        // controls
-        className="h-full w-full object-cover"
+        className={`h-full w-full object-cover transition-opacity duration-300 ${isReady ? "opacity-100" : "opacity-0"}`}
         aria-label={ariaLabel}
+        onCanPlay={() => setIsReady(true)}
+        onError={() => setIsReady(true)}
       >
         Your browser does not support the video tag.
       </video>

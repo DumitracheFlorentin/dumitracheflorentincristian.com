@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ThemeDropdown } from "@/components/theme-dropdown";
@@ -10,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { LoadingImage } from "@/components/projects/loading-image";
 import { ViewportVideo } from "@/components/projects/viewport-video";
 
 export const metadata: Metadata = {
@@ -151,16 +151,13 @@ export default function MakeYourResumeProjectPage() {
             and export to PDF.
           </p>
         </div>
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-sm lg:rounded-3xl">
-          <Image
-            src="/projects/circleResume/circleresume-landing.png"
-            alt="Resume editor with live preview"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-        </div>
+        <LoadingImage
+          src="/projects/circleResume/circleresume-landing.png"
+          alt="Resume editor with live preview"
+          sizes="100vw"
+          priority
+          containerClassName="rounded-2xl border border-border shadow-sm lg:rounded-3xl"
+        />
       </section>
 
       {/* Overview */}

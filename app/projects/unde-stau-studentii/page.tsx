@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ThemeDropdown } from "@/components/theme-dropdown";
-import Image from "next/image";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { LoadingImage } from "@/components/projects/loading-image";
 import { ViewportVideo } from "@/components/projects/viewport-video";
 
 export const metadata: Metadata = {
@@ -134,16 +134,13 @@ export default function UndeStauStudentiiProjectPage() {
             dorms in Romania, with real student reviews.
           </p>
         </div>
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-sm lg:rounded-3xl">
-          <Image
-            src="/projects/unde-stau-studentii/landing.png"
-            alt="Unde Stau Studentii home page"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-        </div>
+        <LoadingImage
+          src="/projects/unde-stau-studentii/landing.png"
+          alt="Unde Stau Studentii home page"
+          sizes="100vw"
+          priority
+          containerClassName="rounded-2xl border border-border shadow-sm lg:rounded-3xl"
+        />
       </section>
 
       {/* Overview */}
