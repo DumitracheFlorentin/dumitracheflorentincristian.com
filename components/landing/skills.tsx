@@ -112,7 +112,7 @@ export default function Skills() {
             <h3 className="text-sm font-medium text-muted-foreground flex items-center gap-1.5">
               {group.label}
               {group.id === "ssr" && (
-                <span className="group/tooltip relative inline-flex">
+                <span className="group/tooltip relative hidden sm:inline-flex">
                   <Info
                     className="size-3.5 shrink-0 text-muted-foreground"
                     aria-label="SSR: Server-Side Rendering explanation"
