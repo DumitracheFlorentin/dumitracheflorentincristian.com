@@ -40,7 +40,7 @@ const SKILL_GROUPS = [
     label: "Backend",
     skills: [
       { name: "NodeJS", experience: "4+ years" },
-      { name: "Express", experience: "2+ years" },
+      { name: "Express", experience: "3+ years" },
       { name: "Rust", experience: "~1 year" },
     ],
   },

@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ImageIcon } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -18,12 +16,14 @@ export type ProjectEntry = {
   image?: string;
   /** Optional project or demo URL */
   href?: string;
+  /** When set, card is non-clickable and shows "In progress" badge with muted styling */
+  status?: "in progress";
 };
 
 const PROJECTS: ProjectEntry[] = [
   {
     id: "1",
-    title: "CircleResume",
+    title: "Circle Resume",
     description:
       "Online resume builder with live preview, templates, and PDF export.",
     image: "/projects/circleResume/circle-resume.png",
@@ -31,17 +31,39 @@ const PROJECTS: ProjectEntry[] = [
   },
   {
     id: "2",
-    title: "UndeStauStudentii",
+    title: "Unde Stau Studentii",
     description:
       "A platform for students to find reviews about dorms and other student accomodations.",
     image: "/projects/unde-stau-studentii/landing.png",
     href: "/projects/unde-stau-studentii",
   },
+  {
+    id: "3",
+    title: "Money Planner",
+    description:
+      "Plan and track your budget, income, and expenses in one place.",
+    status: "in progress",
+  },
+  {
+    id: "4",
+    title: "Calculate Macro",
+    description:
+      "Enter a meal description and get instant calories and macro breakdown (protein, carbs, fats).",
+    status: "in progress",
+  },
 ];
 
 function ProjectCard({ project }: { project: ProjectEntry }) {
+  const inProgress = project.status === "in progress";
+
   const cardContent = (
-    <Card className="flex h-full flex-col overflow-hidden p-0 transition-colors hover:bg-accent/30">
+    <Card
+      className={
+        inProgress
+          ? "flex h-full cursor-default flex-col overflow-hidden p-0 opacity-90 transition-colors"
+          : "flex h-full flex-col overflow-hidden p-0 transition-colors hover:bg-accent/30"
+      }
+    >
       <div className="relative aspect-video w-full shrink-0 bg-muted">
         {project.image ? (
           <Image
@@ -56,23 +78,35 @@ function ProjectCard({ project }: { project: ProjectEntry }) {
             <ImageIcon className="size-10 sm:size-12" aria-hidden />
           </div>
         )}
+        {inProgress && (
+          <span
+            className="absolute right-2 top-2 rounded-md border border-border bg-muted/90 px-2 py-0.5 text-xs font-medium text-muted-foreground"
+            aria-hidden
+          >
+            In progress
+          </span>
+        )}
       </div>
       <CardHeader className="flex-1 gap-1.5 px-4 pb-2 sm:px-5">
         <CardTitle className="text-sm font-medium leading-tight sm:text-base">
           {project.title}
         </CardTitle>
-        <CardDescription className="line-clamp-2 text-xs sm:text-sm mb-4 mt-1">
+        <CardDescription className="mb-4 mt-1 line-clamp-2 text-xs sm:text-sm">
           {project.description}
         </CardDescription>
       </CardHeader>
     </Card>
   );
 
+  if (inProgress) {
+    return <div className="h-full">{cardContent}</div>;
+  }
+
   if (project.href) {
     return (
       <Link
         href={project.href}
-        className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-xl"
+        className="group block h-full rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         {cardContent}
       </Link>
