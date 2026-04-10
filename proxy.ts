@@ -15,7 +15,7 @@ function getFirstSegment(path: string, prefix: string): string {
   return path.slice(prefix.length).replace(/\/$/, "").split("/")[0];
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Static assets under /projects/ or /work-experience/ (e.g. videos, images) — allow

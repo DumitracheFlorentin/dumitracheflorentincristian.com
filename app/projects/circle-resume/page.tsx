@@ -98,9 +98,13 @@ const TECH_STACK = [
   "Tailwind CSS",
   "Better Auth",
   "Drizzle ORM",
-  "Vercel Blob",
   "PostgreSQL",
   "Polar",
+  "Sentry",
+  "Cloudflare",
+  "Vercel",
+  "Inngest",
+  "Resend",
 ];
 
 // function ImagePlaceholder({ alt }: { alt: string }) {
@@ -236,7 +240,7 @@ export default function MakeYourResumeProjectPage() {
           Tech stack
         </h2>
         <Card className="border-border bg-muted/30 p-5 shadow-none sm:p-6">
-          <p className="mb-4 max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
             Built with modern web technologies for performance and
             maintainability.
           </p>

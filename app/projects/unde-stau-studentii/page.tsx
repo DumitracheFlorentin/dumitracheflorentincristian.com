@@ -219,7 +219,7 @@ export default function UndeStauStudentiiProjectPage() {
           Tech stack
         </h2>
         <Card className="border-border bg-muted/30 p-5 shadow-none sm:p-6">
-          <p className="mb-4 max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
             Built with modern technologies for performance and maintainability.
           </p>
           <div className="flex flex-wrap gap-2">

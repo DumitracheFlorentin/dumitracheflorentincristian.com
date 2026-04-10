@@ -37,20 +37,6 @@ const PROJECTS: ProjectEntry[] = [
     image: "/projects/unde-stau-studentii/landing.png",
     href: "/projects/unde-stau-studentii",
   },
-  {
-    id: "3",
-    title: "Money Planner",
-    description:
-      "Plan and track your budget, income, and expenses in one place.",
-    status: "in progress",
-  },
-  {
-    id: "4",
-    title: "Calculate Macro",
-    description:
-      "Enter a meal description and get instant calories and macro breakdown (protein, carbs, fats).",
-    status: "in progress",
-  },
 ];
 
 function ProjectCard({ project }: { project: ProjectEntry }) {
