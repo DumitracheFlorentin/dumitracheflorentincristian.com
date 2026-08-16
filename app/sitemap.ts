@@ -6,7 +6,7 @@ const baseUrl =
 const routes = [
   "",
   "/projects/circle-resume",
-  "/projects/unde-stau-studentii",
+  // "/projects/unde-stau-studentii", // maintenance mode
   "/work-experience/luxoft",
   "/work-experience/decathlon",
 ];

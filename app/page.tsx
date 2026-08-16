@@ -3,6 +3,7 @@ import WorkExperience from "@/components/landing/work-experience";
 import EducationExperience from "@/components/landing/education-experience";
 import Projects from "@/components/landing/projects";
 import Skills from "@/components/landing/skills";
+import Languages from "@/components/landing/languages";
 import Connect from "@/components/landing/connect";
 import Footer from "@/components/landing/footer";
 import PageContent from "@/components/landing/page-content";
@@ -20,13 +21,15 @@ export default function Home() {
         aim to contribute to innovative and impactful projects.
       </p>
 
+      <WorkExperience />
+
+      <EducationExperience />
+
       <Projects />
 
       <Skills />
 
-      <WorkExperience />
-
-      <EducationExperience />
+      <Languages />
 
       <Connect />
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ThemeDropdown } from "@/components/theme-dropdown";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const COMPANIES = ["luxoft", "decathlon"] as const;
 type CompanySlug = (typeof COMPANIES)[number];
@@ -147,7 +147,7 @@ export default async function WorkExperienceCompanyPage({
         >
           ← Back to home
         </Link>
-        <ThemeDropdown />
+        <ThemeToggle />
       </div>
       <div className="flex flex-col gap-8">
         <div>

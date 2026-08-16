@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ThemeDropdown } from "@/components/theme-dropdown";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function NotFound() {
   return (
@@ -11,7 +11,7 @@ export default function NotFound() {
         >
           ← Back to home
         </Link>
-        <ThemeDropdown />
+        <ThemeToggle />
       </div>
 
       <div className="flex flex-col justify-center items-center gap-4 text-center h-[calc(100vh-10rem)]">

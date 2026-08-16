@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { ThemeDropdown } from "@/components/theme-dropdown";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Card,
   CardDescription,
@@ -109,7 +109,7 @@ export default function UndeStauStudentiiProjectPage() {
         >
           ← Back to home
         </Link>
-        <ThemeDropdown />
+        <ThemeToggle />
       </div>
 
       {/* Hero */}

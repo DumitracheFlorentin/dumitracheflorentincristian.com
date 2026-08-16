@@ -29,14 +29,15 @@ const PROJECTS: ProjectEntry[] = [
     image: "/projects/circleResume/circle-resume.png",
     href: "/projects/circle-resume",
   },
-  {
-    id: "2",
-    title: "Unde Stau Studentii",
-    description:
-      "A platform for students to find reviews about dorms and other student accomodations.",
-    image: "/projects/unde-stau-studentii/landing.png",
-    href: "/projects/unde-stau-studentii",
-  },
+  // Maintenance mode — hide from customers for now.
+  // {
+  //   id: "2",
+  //   title: "Unde Stau Studentii",
+  //   description:
+  //     "A platform for students to find reviews about dorms and other student accomodations.",
+  //   image: "/projects/unde-stau-studentii/landing.png",
+  //   href: "/projects/unde-stau-studentii",
+  // },
 ];
 
 function ProjectCard({ project }: { project: ProjectEntry }) {

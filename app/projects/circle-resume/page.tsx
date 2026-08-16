@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { ThemeDropdown } from "@/components/theme-dropdown";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Card,
   CardContent,
@@ -130,7 +130,7 @@ export default function MakeYourResumeProjectPage() {
         >
           ← Back to home
         </Link>
-        <ThemeDropdown />
+        <ThemeToggle />
       </div>
 
       {/* Hero – mobile: stacked left-aligned; desktop: centered, image full width below */}

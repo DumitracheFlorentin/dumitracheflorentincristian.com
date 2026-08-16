@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { ThemeDropdown } from "@/components/theme-dropdown";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Header() {
   const { resolvedTheme } = useTheme();
@@ -65,7 +65,7 @@ export default function Header() {
             </Link>
           </Button>
         </div>
-        <ThemeDropdown />
+        <ThemeToggle />
       </div>
     </div>
   );

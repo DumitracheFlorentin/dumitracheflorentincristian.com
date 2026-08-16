@@ -1,13 +1,15 @@
 "use client";
 
+import { Github, Linkedin } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin, Mail } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import Link from "next/link";
 
 const EMAIL = "dumitracheflorentincristian@gmail.com";
 const LINKEDIN_URL =
   "https://www.linkedin.com/in/florentin-dumitrache-cristian/";
 const GITHUB_URL = "https://github.com/DumitracheFlorentin";
+const CV_HREF = encodeURI("/Resume - Florentin-Cristian Dumitrache.pdf");
 
 export default function Connect() {
   return (
@@ -64,7 +66,7 @@ export default function Connect() {
             asChild
           >
             <a
-              href="/Resume - Florentin-Cristian-Dumitrache.pdf"
+              href={CV_HREF}
               download
               className="inline-flex items-center gap-2"
             >

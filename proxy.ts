@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const ALLOWED_PROJECT_SLUGS = ["circle-resume", "unde-stau-studentii"];
+const ALLOWED_PROJECT_SLUGS = [
+  "circle-resume",
+  // "unde-stau-studentii", // maintenance mode
+];
 const ALLOWED_WORK_EXPERIENCE_SLUGS = ["luxoft", "decathlon"];
 
 /** Path has a file extension (static asset), so allow without redirect. */
@@ -23,7 +26,8 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Projects: only /projects/circle-resume and /projects/unde-stau-studentii
+  // Projects: only /projects/circle-resume
+  // (unde-stau-studentii is in maintenance mode)
   if (pathname === "/projects") {
     return NextResponse.redirect(new URL("/", request.url));
   }
